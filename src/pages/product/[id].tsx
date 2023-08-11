@@ -1,45 +1,37 @@
-import axios from "axios"
 import { ImageContainer, ProductContainer, ProductDetails } from "@/src/styles/pages/product"
 import { GetStaticPaths, GetStaticProps } from "next"
 import { stripe } from '../../lib/stripe'
 import Stripe from "stripe"
-import { useState } from "react"
 import Image from "next/image"
 import Head from "next/head"
+import { useShoppingCart } from "use-shopping-cart"
+import { Iproduct } from ".."
 
 interface ProductProps {
-  product: {
-    id: string
-    name: string
-    imageUrl: string
-    price: string
-    description: string
-    defaultPriceId: string
-  }
+  product: Iproduct
 }
 
 export default function Product({ product }: ProductProps) {
-  const [isCreatingCheckoutSession, setIsCreatingCheckoutSession] = useState(false);
+  const { addItem, cartDetails } = useShoppingCart()
 
-  console.log(product);
-
-  async function handleBuyButton() {
-    try {
-      setIsCreatingCheckoutSession(true);
-
-      const response = await axios.post('/api/checkout', {
-        priceId: product.defaultPriceId,
-      })
-
-      const { checkouturl } = response.data;
-
-      window.location.href = checkouturl;
-    } catch (err) {
-      setIsCreatingCheckoutSession(false);
-
-      alert('Falha ao redirecionar ao checkout!')
+  function handleAddItemToCart(product: Iproduct) {
+    if (cartDetails[product.id]) {
+      return
     }
+
+    return (
+      addItem({
+        currency: 'BRL',
+        id: product.id,
+        name: product.name,
+        price: product.priceNotFormatted,
+        price_id: product.priceId,
+        image: product.imageUrl,
+        description: product.description,
+      })
+    )
   }
+
 
   return (
     <>
@@ -58,8 +50,8 @@ export default function Product({ product }: ProductProps) {
 
           <p>{product.description}</p>
 
-          <button disabled={isCreatingCheckoutSession} onClick={handleBuyButton}>
-            Comprar agora
+          <button disabled={cartDetails[product.id] ? true : false} onClick={() => handleAddItemToCart(product)}>
+            Colocar na sacola
           </button>
         </ProductDetails>
       </ProductContainer>
