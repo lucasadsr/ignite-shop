@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 import { useKeenSlider } from 'keen-slider/react'
-import { useEffect } from 'react'
 
 import { HomeContainer, Product, ProductInfos } from "../styles/pages/home";
 
