@@ -1,9 +1,9 @@
 import Image from 'next/image'
-import logoImage from '../assets/logo.svg'
-import { HeaderContainer } from '../styles/pages/app'
+import logoImage from '../../assets/logo.svg'
+import { HeaderContainer } from './styles'
 import { Handbag } from 'phosphor-react'
 import { useShoppingCart } from 'use-shopping-cart'
-import { Cart } from './Cart'
+import { Cart } from '../Cart'
 
 export function Header() {
   const { cartCount, handleCartClick } = useShoppingCart()
