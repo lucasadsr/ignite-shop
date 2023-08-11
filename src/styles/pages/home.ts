@@ -30,6 +30,7 @@ export const Product = styled('div', {
     left: '0.25rem',
     right: '0.25rem',
     padding: '2rem',
+    cursor: 'initial',
 
     display: 'flex',
     alignItems: 'center',
@@ -52,6 +53,16 @@ export const Product = styled('div', {
       fontSize: '$xl',
       fontWeight: 'bold',
       color: '$green300'
+    },
+
+    button: {
+      display: 'flex',
+      alignItems: 'center',
+      borderRadius: '0.375rem',
+      padding: '0.75rem',
+      backgroundColor: '$green500',
+      border: 'none',
+      cursor: 'pointer'
     }
   },
 
@@ -61,4 +72,10 @@ export const Product = styled('div', {
       opacity: 1,
     }
   }
+})
+
+export const ProductInfos = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '0.25rem',
 })
