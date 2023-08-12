@@ -94,7 +94,10 @@ export default function Home({ products }: HomeProps) {
                     <strong>{product.name}</strong>
                     <span>{product.price}</span>
                   </ProductInfos>
-                  <button onClick={() => handleAddItemToCart(product)}>
+                  <button
+                    disabled={cartDetails[product.id] ? true : false}
+                    onClick={() => handleAddItemToCart(product)}
+                  >
                     <Handbag width={32} height={32} color="#FFFFFF" weight="bold" />
                   </button>
                 </footer>

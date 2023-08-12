@@ -59,7 +59,12 @@ export const Product = styled('div', {
       padding: '0.75rem',
       backgroundColor: '$green500',
       border: 'none',
-      cursor: 'pointer'
+      cursor: 'pointer',
+
+      '&:disabled': {
+        cursor: 'not-allowed',
+        opacity: 0.7,
+      }
     }
   },
 

@@ -16,7 +16,8 @@ export const CartContainer = styled('div', {
 
   padding: 24,
 
-  minHeight: '100vh',
+  height: '100%',
+  maxHeight: '100vh',
   width: 480,
   maxWidth: '100%',
   zIndex: 10,
@@ -39,7 +40,8 @@ export const CartContainer = styled('div', {
 
 export const ProductContainer = styled('div', {
   display: 'flex',
-  gap: '1.25rem'
+  gap: '1.25rem',
+  height: '5.875rem',
 })
 
 export const ImageWrapper = styled('div', {
@@ -75,7 +77,22 @@ export const ProductDetails = styled('div', {
 export const Summary = styled('div', {
   display: 'flex',
   flexDirection: 'column',
-  gap: '1.5rem'
+  gap: '1.5rem',
+  overflowY: 'auto',
+  height: '22rem',
+
+  '&::-webkit-scrollbar': {
+    width: 8,
+  },
+
+  '&::-webkit-scrollbar-thumb': {
+    backgroundColor: '$green300',
+    borderRadius: 12,
+  },
+  
+  '&::-webkit-scrollbar-track': {
+    backgroundColor: '$gray300',
+  }
 })
 
 export const QuantityContainer = styled('div', {
@@ -103,6 +120,7 @@ export const BuyButton = styled('button', {
   width: '100%',
   padding: '1.25rem 2rem !important',
   backgroundColor: '$green500 !important',
+  maxHeight: '3.875rem',
 
   fontWeight: 'bold',
   fontSize: '$md',

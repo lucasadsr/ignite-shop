@@ -3,13 +3,18 @@ import { BuyButton, CartContainer, CloseButton, ImageWrapper, ProductContainer, 
 import { useShoppingCart } from 'use-shopping-cart'
 import axios from "axios";
 import { CartEntry } from "use-shopping-cart/core";
+import { useState } from 'react'
+import { Oval } from "react-loader-spinner";
 
 export function Cart() {
   const { cartDetails, cartCount, formattedTotalPrice, shouldDisplayCart, handleCartClick, removeItem } = useShoppingCart()
+  const [isLoadingCheckout, setIsLoadingCheckout] = useState(false)
 
   const cart: CartEntry[] = Object.values(cartDetails)
 
   async function handleCheckout() {
+    setIsLoadingCheckout(true)
+
     try {
       const response = await axios.post("/api/checkout", {
         cart,
@@ -62,7 +67,14 @@ export function Cart() {
           <TotalPrice>{formattedTotalPrice}</TotalPrice>
         </TotalPriceContainer>
 
-        <BuyButton disabled={cartCount < 1} onClick={handleCheckout}>Finalizar compra</BuyButton>
+        <BuyButton disabled={cartCount < 1 || isLoadingCheckout} onClick={handleCheckout}>
+          {isLoadingCheckout ?
+            <Oval
+              height={32}
+              width={32}
+            /> :
+            'Finalizar compra'}
+        </BuyButton>
       </div>
     </CartContainer>
   )
