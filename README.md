@@ -1,38 +1,88 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Ignite Shop - E-Commerce de Camisetas Rocketseat
 
-## Getting Started
+Ignite Shop, uma plataforma de e-commerce para comprar camisetas temáticas da Rocketseat. Este projeto é construído utilizando tecnologias web modernas, como Next.js, Stripe para o checkout, useShoppingCart para funcionalidade do carrinho, Stitches para estilização, Axios para requisições à API e TypeScript para desenvolvimento com tipagem segura.
 
-First, run the development server:
+<div align="center">
+  <img src="./public/ignite-shop-print.png" width="640px" />
+</div>
+
+## Índice
+
+- [Começando](#começando)
+  - [Pré-requisitos](#pré-requisitos)
+  - [Instalação](#instalação)
+  - [Configuração](#configuração)
+- [Recursos](#recursos)
+  - [Renderização do Lado do Servidor (SSR) e Geração de Site Estático (SSG)](#renderização-do-lado-do-servidor-ssr-e-geração-de-site-estático-ssg)
+  - [Integração com o Stripe](#integração-com-o-stripe)
+  - [Funcionalidade do Carrinho](#funcionalidade-do-carrinho)
+  - [Estilização com Stitches](#estilização-com-stitches)
+- [Uso](#uso)
+
+## Começando
+
+Siga estas instruções para configurar o projeto em sua máquina local.
+
+### Pré-requisitos
+
+Certifique-se de que você tenha o seguinte instalado:
+
+- Node.js (versão 14 ou superior)
+- npm ou yarn
+- Conta no Stripe para as chaves da API
+
+### Instalação
+
+1. Clone o repositório:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+git clone https://github.com/seu-nome-de-usuário/ignite-shop.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Navegue até o diretório do projeto:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```bash
+cd ignite-shop
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+3. Instale as dependências usando npm ou yarn:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```bash
+npm install
+# ou
+yarn install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Configuração
 
-## Learn More
+Renomeie o arquivo .env.example para .env.local e atualize as variáveis de ambiente:
+```dotenv
+STRIPE_PUBLIC_KEY=sua_chave_pública_do_stripe
+STRIPE_SECRET_KEY=sua_chave_secreta_do_stripe
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Recursos
+#### Renderização do Lado do Servidor (SSR) e Geração de Site Estático (SSG)
+O projeto utiliza o Next.js para implementar a Renderização do Lado do Servidor (SSR) e a Geração de Site Estático (SSG) para melhorar o desempenho e o SEO.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### Integração com o Stripe
+O Stripe está integrado para um checkout seguro e sem problemas. Os clientes podem inserir com segurança seus detalhes de pagamento e concluir seus pedidos.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+#### Funcionalidade do Carrinho
+A biblioteca useShoppingCart é usada para gerenciar a funcionalidade do carrinho de compras. Os usuários podem adicionar e remover itens em seu carrinho antes de prosseguir para o checkout.
 
-## Deploy on Vercel
+#### Estilização com Stitches
+O Stitches, uma biblioteca CSS-in-JS, é usado para estilizar os componentes. Essa abordagem oferece melhor encapsulamento e manutenção para a estilização.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Uso
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. Faça e execute a build para melhor uso:
+```bash
+npm run build
+npm start
+# ou
+yarn build
+yarn start
+```
+
+2. Abra seu navegador e acesse http://localhost:3000 para acessar o Ignite Shop.
