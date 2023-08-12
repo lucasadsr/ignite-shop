@@ -12,8 +12,6 @@ export default async function handler(
 
   const cart: CartEntry = req.body.cart;
 
-  console.log(cart[0]);
-
   if (!cart) {
     return res.status(400).json({ error: "Cart not found." });
   }
