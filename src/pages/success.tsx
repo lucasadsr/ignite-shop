@@ -77,8 +77,6 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     return product
   })
 
-  console.log(products)
-
   return {
     props: {
       customerName,
