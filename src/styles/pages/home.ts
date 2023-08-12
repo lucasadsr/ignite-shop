@@ -2,9 +2,6 @@ import { styled } from "..";
 
 export const HomeContainer = styled('main', {
   display: 'flex',
-  width: '100%',
-  maxWidth: 'calc(100vw - ((100vw - 1180px) / 2))',
-  marginLeft: 'auto',
   maxHeight: 560,
 })
 
@@ -78,4 +75,34 @@ export const ProductInfos = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   gap: '0.25rem',
+})
+
+export const SliderContainer = styled('div', {
+  position: 'relative',
+  marginLeft: 'auto',
+  width: '100%',
+  maxWidth: 'calc(100vw - ((100vw - 1180px) / 2))',
+
+  '.arrow': {
+    width: 30,
+    height: 30,
+    position: 'absolute',
+    top: '50%',
+    transform: 'translateY(-50%)',
+    fill: '#fff',
+    cursor: 'pointer',
+  },
+  
+  '.arrow--left': {
+    left: 5,
+  },
+  
+  '.arrow--right': {
+    left: 'auto',
+    right: 5,
+  },
+  
+  '.arrow--disabled': {
+    fill: 'rgba(255, 255, 255, 0.5)',
+  },
 })
