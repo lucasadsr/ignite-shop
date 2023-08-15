@@ -73,6 +73,13 @@ export const Product = styled('div', {
       transform: 'translateY(0%)',
       opacity: 1,
     }
+  },
+
+  '@media screen and (max-width: 1024px)': {
+    footer: {
+      transform: 'translateY(0%)',
+      opacity: 1,
+    },
   }
 })
 

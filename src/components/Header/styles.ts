@@ -36,5 +36,9 @@ export const HeaderContainer = styled('header', {
     backgroundColor: '$green500',
     right: '-0.4375rem',
     top: '-0.4375rem',
+  },
+
+  '@media screen and (max-width: 1024px)': {
+    width: '100%',
   }
 })
